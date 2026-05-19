@@ -18,525 +18,191 @@
     --muted: #7a9db5;
     --border: rgba(0,229,255,0.12);
     --card: rgba(13,21,32,0.85);
-    --green: #00ff88;
     --mono: 'Space Mono', monospace;
     --sans: 'Sora', sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* --- GRID BG --- */
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size:16px; line-height:1.7; overflow-x:hidden; }
   body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
+    content:''; position:fixed; inset:0;
+    background-image: linear-gradient(rgba(0,229,255,0.025) 1px,transparent 1px), linear-gradient(90deg,rgba(0,229,255,0.025) 1px,transparent 1px);
+    background-size:48px 48px; pointer-events:none; z-index:0;
   }
 
-  /* --- NAVBAR --- */
-  nav {
-    position: fixed; top:0; left:0; right:0; z-index:100;
-    background: rgba(8,12,16,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 64px;
-  }
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 1.1rem;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--muted); }
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(8,12,16,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .nav-logo { font-family:var(--mono); font-size:1.1rem; color:var(--accent); letter-spacing:0.05em; text-decoration:none; }
+  .nav-logo span { color:var(--muted); }
   .nav-links { display:flex; gap:2rem; list-style:none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    font-weight: 500;
-  }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; font-weight:500; }
+  .nav-links a:hover { color:var(--accent); }
 
-  /* --- HERO --- */
-  #hero {
-    position: relative; z-index:1;
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 6vw 80px;
-    overflow: hidden;
-  }
-  .hero-tag {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .hero-tag::before {
-    content:'';
-    width:32px; height:1px;
-    background: var(--accent);
-    display:inline-block;
-  }
-  h1 {
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-  }
-  h1 .accent { color: var(--accent); }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: var(--muted);
-    max-width: 560px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-  .hero-certs {
-    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem;
-  }
-  .cert-badge {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    padding: 6px 14px;
-    border: 1px solid rgba(0,229,255,0.35);
-    border-radius: 2px;
-    color: var(--accent3);
-    background: rgba(0,229,255,0.06);
-    text-transform: uppercase;
-  }
+  /* HERO */
+  #hero { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:120px 6vw 80px; overflow:hidden; }
+  .hero-tag { font-family:var(--mono); font-size:0.78rem; color:var(--accent); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1.5rem; display:flex; align-items:center; gap:12px; }
+  .hero-tag::before { content:''; width:32px; height:1px; background:var(--accent); display:inline-block; }
+  h1 { font-size:clamp(2.8rem,7vw,5.5rem); font-weight:700; line-height:1.05; letter-spacing:-0.02em; margin-bottom:1.5rem; }
+  h1 .accent { color:var(--accent); }
+  .hero-sub { font-size:clamp(1rem,2vw,1.25rem); color:var(--muted); max-width:560px; margin-bottom:2.5rem; font-weight:300; }
+  .hero-certs { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:3rem; }
+  .cert-badge { font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; padding:6px 14px; border:1px solid rgba(0,229,255,0.35); border-radius:2px; color:var(--accent3); background:rgba(0,229,255,0.06); text-transform:uppercase; }
   .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
-  .btn-primary {
-    display:inline-flex; align-items:center; gap:8px;
-    background: var(--accent);
-    color: #000;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background: var(--accent3); transform: translateY(-1px); }
-  .btn-secondary {
-    display:inline-flex; align-items:center; gap:8px;
-    border: 1px solid var(--border);
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .btn-secondary:hover { border-color: var(--accent); background: rgba(0,229,255,0.06); }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#000; font-family:var(--mono); font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:14px 28px; text-decoration:none; border-radius:2px; transition:background 0.2s,transform 0.15s; border:none; cursor:pointer; }
+  .btn-primary:hover { background:var(--accent3); transform:translateY(-1px); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border); color:var(--accent); font-family:var(--mono); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; padding:14px 28px; text-decoration:none; border-radius:2px; transition:border-color 0.2s,background 0.2s; background:transparent; cursor:pointer; }
+  .btn-secondary:hover { border-color:var(--accent); background:rgba(0,229,255,0.06); }
+  .hero-orb { position:absolute; right:-5vw; top:50%; transform:translateY(-50%); width:clamp(300px,40vw,580px); height:clamp(300px,40vw,580px); border-radius:50%; background:radial-gradient(circle at center,rgba(0,119,182,0.22) 0%,transparent 70%); pointer-events:none; }
+  .hero-ring { position:absolute; right:5vw; top:50%; transform:translateY(-50%); width:clamp(200px,28vw,400px); height:clamp(200px,28vw,400px); border-radius:50%; border:1px solid rgba(0,229,255,0.1); }
+  .hero-ring::before { content:''; position:absolute; inset:-40px; border-radius:50%; border:1px solid rgba(0,229,255,0.05); }
 
-  /* glow orb */
-  .hero-orb {
-    position: absolute;
-    right: -5vw; top: 50%;
-    transform: translateY(-50%);
-    width: clamp(300px, 40vw, 580px);
-    height: clamp(300px, 40vw, 580px);
-    border-radius: 50%;
-    background: radial-gradient(circle at center, rgba(0,119,182,0.22) 0%, transparent 70%);
-    pointer-events:none;
-  }
-  .hero-ring {
-    position: absolute;
-    right: 5vw; top: 50%;
-    transform: translateY(-50%);
-    width: clamp(200px, 28vw, 400px);
-    height: clamp(200px, 28vw, 400px);
-    border-radius: 50%;
-    border: 1px solid rgba(0,229,255,0.1);
-  }
-  .hero-ring::before {
-    content:'';
-    position:absolute; inset:-40px;
-    border-radius:50%;
-    border: 1px solid rgba(0,229,255,0.05);
-  }
-
-  /* --- SECTIONS --- */
-  section {
-    position:relative; z-index:1;
-    padding: 100px 6vw;
-  }
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-    display:flex; align-items:center; gap:10px;
-  }
+  /* SECTIONS */
+  section { position:relative; z-index:1; padding:100px 6vw; }
+  .section-label { font-family:var(--mono); font-size:0.72rem; color:var(--accent); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.75rem; display:flex; align-items:center; gap:10px; }
   .section-label::before { content:'//'; opacity:0.5; }
-  h2 {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-  .section-desc {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 540px;
-    margin-bottom: 3.5rem;
-    font-weight: 300;
-  }
+  h2 { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:0.5rem; }
+  .section-desc { color:var(--muted); font-size:1.05rem; max-width:540px; margin-bottom:3.5rem; font-weight:300; }
 
-  /* --- STATS BAR --- */
-  #stats {
-    padding: 48px 6vw;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-    gap: 2rem;
-  }
+  /* STATS */
+  #stats { padding:48px 6vw; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg2); }
+  .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:2rem; }
   .stat-item { text-align:center; }
-  .stat-num {
-    font-family: var(--mono);
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--accent);
-    font-weight: 700;
-    display:block;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 0.82rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .stat-num { font-family:var(--mono); font-size:clamp(2rem,4vw,3rem); color:var(--accent); font-weight:700; display:block; line-height:1; margin-bottom:6px; }
+  .stat-label { font-size:0.82rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
 
-  /* --- EXPERTISE GRID --- */
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 1.5px;
-    background: var(--border);
-    border: 1.5px solid var(--border);
-  }
-  .expertise-card {
-    background: var(--bg);
-    padding: 2rem 1.75rem;
-    transition: background 0.2s;
-  }
-  .expertise-card:hover { background: var(--bg3); }
-  .exp-icon {
-    width: 40px; height: 40px;
-    border: 1px solid rgba(0,229,255,0.25);
-    border-radius: 2px;
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom: 1.25rem;
-    font-size: 18px;
-  }
-  .expertise-card h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-  .expertise-card p {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.65;
-    font-weight: 300;
-  }
+  /* EXPERTISE */
+  .expertise-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5px; background:var(--border); border:1.5px solid var(--border); }
+  .expertise-card { background:var(--bg); padding:2rem 1.75rem; transition:background 0.2s; }
+  .expertise-card:hover { background:var(--bg3); }
+  .exp-icon { width:40px; height:40px; border:1px solid rgba(0,229,255,0.25); border-radius:2px; display:flex; align-items:center; justify-content:center; margin-bottom:1.25rem; font-size:18px; }
+  .expertise-card h3 { font-size:1rem; font-weight:600; margin-bottom:0.75rem; letter-spacing:-0.01em; }
+  .expertise-card p { font-size:0.88rem; color:var(--muted); line-height:1.65; font-weight:300; }
 
-  /* --- ARTICLES --- */
-  .articles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap: 1.5rem;
-  }
-  .article-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.75rem;
-    text-decoration: none;
-    color: inherit;
-    display:block;
-    transition: border-color 0.2s, transform 0.2s;
-    position:relative;
-    overflow:hidden;
-  }
-  .article-card::before {
-    content:'';
-    position:absolute;
-    top:0; left:0; right:0;
-    height:2px;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .article-card:hover { border-color: rgba(0,229,255,0.3); transform: translateY(-2px); }
-  .article-card:hover::before { transform: scaleX(1); }
-  .article-tag {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-  }
-  .article-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-  .article-card p {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-  .article-meta {
-    margin-top: 1.25rem;
-    font-size: 0.75rem;
-    color: var(--muted);
-    display:flex; justify-content:space-between; align-items:center;
-    font-family: var(--mono);
-    opacity: 0.7;
-  }
+  /* ARTICLES */
+  .articles-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+  .article-card { background:var(--card); border:1px solid var(--border); border-radius:4px; padding:1.75rem; text-decoration:none; color:inherit; display:block; transition:border-color 0.2s,transform 0.2s; position:relative; overflow:hidden; cursor:pointer; }
+  .article-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--accent2),var(--accent)); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+  .article-card:hover { border-color:rgba(0,229,255,0.3); transform:translateY(-2px); }
+  .article-card:hover::before { transform:scaleX(1); }
+  .article-tag { font-family:var(--mono); font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:0.75rem; }
+  .article-card h3 { font-size:1.05rem; font-weight:600; line-height:1.4; margin-bottom:0.75rem; letter-spacing:-0.01em; }
+  .article-card p { font-size:0.85rem; color:var(--muted); line-height:1.6; font-weight:300; }
+  .article-meta { margin-top:1.25rem; font-size:0.75rem; color:var(--muted); display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); opacity:0.7; }
 
-  /* --- STANDARDS SECTION --- */
-  .standards-list {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-    gap: 12px;
-  }
-  .std-item {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    padding: 1rem 1.25rem;
-    display:flex; align-items:flex-start; gap:12px;
-  }
-  .std-code {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--accent);
-    background: rgba(0,229,255,0.08);
-    padding: 3px 8px;
-    border-radius: 2px;
-    white-space: nowrap;
-    margin-top: 2px;
-    flex-shrink:0;
-  }
-  .std-item span {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.5;
-  }
+  /* STANDARDS */
+  .standards-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+  .std-item { background:var(--bg2); border:1px solid var(--border); border-radius:3px; padding:1rem 1.25rem; display:flex; align-items:flex-start; gap:12px; }
+  .std-code { font-family:var(--mono); font-size:0.7rem; color:var(--accent); background:rgba(0,229,255,0.08); padding:3px 8px; border-radius:2px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+  .std-item span { font-size:0.85rem; color:var(--muted); line-height:1.5; }
 
-  /* --- ABOUT --- */
-  #about {
-    background: var(--bg2);
-  }
-  .about-inner {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items:start;
-  }
-  @media (max-width:768px) {
-    .about-inner { grid-template-columns:1fr; gap:2.5rem; }
-    nav { padding: 0 1rem; }
-    .nav-links { display:none; }
-    section { padding: 70px 5vw; }
-    #hero { padding: 100px 5vw 60px; }
-    .hero-orb, .hero-ring { display:none; }
-  }
-  .about-text p {
-    color: var(--muted);
-    font-size: 0.97rem;
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 1.25rem;
-  }
-  .about-text p strong { color: var(--text); font-weight: 500; }
-  .skills-panel h3 {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.25rem;
-  }
-  .skill-row {
-    margin-bottom: 1rem;
-  }
-  .skill-name {
-    display:flex; justify-content:space-between;
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-bottom: 6px;
-  }
-  .skill-name span:last-child { color: var(--accent); font-family: var(--mono); font-size:0.72rem; }
-  .skill-bar {
-    height: 2px;
-    background: rgba(255,255,255,0.06);
-    border-radius:1px;
-    overflow:hidden;
-  }
-  .skill-fill {
-    height:100%;
-    background: linear-gradient(90deg, var(--accent2), var(--accent));
-    border-radius:1px;
-    transition: width 1s ease;
-  }
+  /* ABOUT */
+  #about { background:var(--bg2); }
+  .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+  .about-text p { color:var(--muted); font-size:0.97rem; line-height:1.8; font-weight:300; margin-bottom:1.25rem; }
+  .about-text p strong { color:var(--text); font-weight:500; }
+  .skills-panel h3 { font-family:var(--mono); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:1.25rem; }
+  .skill-row { margin-bottom:1rem; }
+  .skill-name { display:flex; justify-content:space-between; font-size:0.82rem; color:var(--muted); margin-bottom:6px; }
+  .skill-name span:last-child { color:var(--accent); font-family:var(--mono); font-size:0.72rem; }
+  .skill-bar { height:2px; background:rgba(255,255,255,0.06); border-radius:1px; overflow:hidden; }
+  .skill-fill { height:100%; background:linear-gradient(90deg,var(--accent2),var(--accent)); border-radius:1px; }
+  .line-divider { width:48px; height:2px; background:var(--accent); margin:0 0 2.5rem; }
 
-  /* --- CONTACT --- */
-  .contact-inner {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items:start;
-  }
-  @media (max-width:768px) { .contact-inner { grid-template-columns:1fr; gap:2rem; } }
-  .contact-info p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    font-weight: 300;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-  }
+  /* CONTACT */
+  .contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+  .contact-info p { color:var(--muted); font-size:0.95rem; font-weight:300; line-height:1.8; margin-bottom:2rem; }
   .contact-links { display:flex; flex-direction:column; gap:12px; }
-  .contact-link {
-    display:flex; align-items:center; gap:14px;
-    text-decoration:none; color: var(--muted);
-    font-size: 0.88rem;
-    padding: 14px 16px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius:3px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .contact-link:hover { border-color: rgba(0,229,255,0.4); color: var(--accent); }
-  .contact-link-icon {
-    width:36px; height:36px;
-    background: rgba(0,229,255,0.07);
-    border-radius:2px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:16px; flex-shrink:0;
-  }
-  .form-group { margin-bottom: 1.25rem; }
-  .form-group label {
-    display:block;
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .form-group input,
-  .form-group textarea {
-    width:100%;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius:3px;
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    padding: 12px 16px;
-    outline:none;
-    transition: border-color 0.2s;
-    resize:none;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus { border-color: rgba(0,229,255,0.5); }
-  .form-submit {
-    background: var(--accent);
-    color: #000;
-    border:none;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 14px 32px;
-    border-radius: 2px;
-    cursor:pointer;
-    transition: background 0.2s;
-    width:100%;
-  }
-  .form-submit:hover { background: var(--accent3); }
+  .contact-link { display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--muted); font-size:0.88rem; padding:14px 16px; background:var(--bg2); border:1px solid var(--border); border-radius:3px; transition:border-color 0.2s,color 0.2s; }
+  .contact-link:hover { border-color:rgba(0,229,255,0.4); color:var(--accent); }
+  .contact-link-icon { width:36px; height:36px; background:rgba(0,229,255,0.07); border-radius:2px; display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+  .form-group { margin-bottom:1.25rem; }
+  .form-group label { display:block; font-family:var(--mono); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .form-group input, .form-group textarea { width:100%; background:var(--bg2); border:1px solid var(--border); border-radius:3px; color:var(--text); font-family:var(--sans); font-size:0.9rem; padding:12px 16px; outline:none; transition:border-color 0.2s; resize:none; }
+  .form-group input:focus, .form-group textarea:focus { border-color:rgba(0,229,255,0.5); }
+  .form-submit { background:var(--accent); color:#000; border:none; font-family:var(--mono); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:14px 32px; border-radius:2px; cursor:pointer; transition:background 0.2s; width:100%; }
+  .form-submit:hover { background:var(--accent3); }
 
-  /* --- FOOTER --- */
-  footer {
-    position:relative; z-index:1;
-    padding: 2.5rem 6vw;
-    border-top: 1px solid var(--border);
-    display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:1rem;
-  }
-  .footer-logo {
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-  }
-  footer p {
-    font-size: 0.78rem;
-    color: var(--muted);
-    font-family: var(--mono);
-  }
+  /* FOOTER */
+  footer { position:relative; z-index:1; padding:2.5rem 6vw; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+  .footer-logo { font-family:var(--mono); font-size:0.85rem; color:var(--accent); letter-spacing:0.05em; }
+  footer p { font-size:0.78rem; color:var(--muted); font-family:var(--mono); }
 
-  /* --- DIVIDER LINE --- */
-  .line-divider {
-    width: 48px; height: 2px;
-    background: var(--accent);
-    margin: 0 0 2.5rem;
-  }
+  /* FADE UP */
+  .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
 
-  /* scroll animation */
-  .fade-up {
-    opacity:0; transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+  /* ========================
+     ARTICLE MODAL
+  ======================== */
+  .modal-overlay {
+    display:none; position:fixed; inset:0; z-index:500;
+    background:rgba(4,8,14,0.97);
+    overflow-y:auto;
   }
-  .fade-up.visible { opacity:1; transform: translateY(0); }
+  .modal-overlay.open { display:block; }
+  .modal-inner {
+    max-width:820px; margin:0 auto;
+    padding:80px 2rem 120px;
+  }
+  .modal-back {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--muted); background:none; border:none; cursor:pointer;
+    padding:10px 0; margin-bottom:3rem;
+    transition:color 0.2s;
+  }
+  .modal-back:hover { color:var(--accent); }
+  .modal-header { margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--border); }
+  .modal-tag { font-family:var(--mono); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; }
+  .modal-title { font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; letter-spacing:-0.02em; line-height:1.15; margin-bottom:1.25rem; }
+  .modal-meta { font-family:var(--mono); font-size:0.75rem; color:var(--muted); display:flex; gap:2rem; flex-wrap:wrap; }
+
+  /* Article body typography */
+  .article-body { color:#c8dde8; font-size:0.97rem; line-height:1.85; font-weight:300; }
+  .article-body p { margin-bottom:1.5rem; }
+  .article-body h2 { font-size:1.4rem; font-weight:600; color:var(--text); margin:3rem 0 1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border); letter-spacing:-0.01em; }
+  .article-body h3 { font-size:1.1rem; font-weight:600; color:var(--accent3); margin:2rem 0 0.75rem; }
+  .article-body h4 { font-size:0.95rem; font-weight:600; color:var(--text); margin:1.5rem 0 0.5rem; text-transform:uppercase; letter-spacing:0.06em; font-family:var(--mono); }
+  .article-body ul, .article-body ol { padding-left:1.5rem; margin-bottom:1.5rem; }
+  .article-body li { margin-bottom:0.5rem; color:#a8c8d8; }
+  .article-body strong { color:var(--text); font-weight:600; }
+  .article-body code { font-family:var(--mono); font-size:0.82rem; background:rgba(0,229,255,0.07); color:var(--accent); padding:2px 8px; border-radius:2px; }
+
+  /* Info boxes */
+  .info-box { background:rgba(0,119,182,0.1); border-left:3px solid var(--accent2); border-radius:0 4px 4px 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+  .info-box p { margin:0; font-size:0.9rem; }
+  .warn-box { background:rgba(255,160,0,0.08); border-left:3px solid #ffaa00; border-radius:0 4px 4px 0; padding:1.25rem 1.5rem; margin:2rem 0; }
+  .warn-box p { margin:0; font-size:0.9rem; color:#ffd070; }
+
+  /* Standard table */
+  .std-table { width:100%; border-collapse:collapse; margin:2rem 0; font-size:0.85rem; }
+  .std-table th { background:rgba(0,229,255,0.08); color:var(--accent); font-family:var(--mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:10px 14px; text-align:left; border-bottom:1px solid var(--border); }
+  .std-table td { padding:10px 14px; border-bottom:1px solid rgba(0,229,255,0.06); color:#a8c8d8; vertical-align:top; }
+  .std-table tr:hover td { background:rgba(0,229,255,0.03); }
+  .std-table td:first-child { font-family:var(--mono); font-size:0.78rem; color:var(--accent); white-space:nowrap; }
+
+  /* Number badge list */
+  .numbered-list { list-style:none; padding:0; counter-reset:items; }
+  .numbered-list li { counter-increment:items; display:flex; gap:1rem; margin-bottom:1rem; align-items:flex-start; }
+  .numbered-list li::before { content:counter(items,decimal-leading-zero); font-family:var(--mono); font-size:0.72rem; color:var(--accent); background:rgba(0,229,255,0.08); padding:4px 8px; border-radius:2px; min-width:36px; text-align:center; flex-shrink:0; margin-top:2px; }
+
+  /* Checklist */
+  .checklist { list-style:none; padding:0; }
+  .checklist li { display:flex; gap:10px; margin-bottom:0.6rem; font-size:0.9rem; color:#a8c8d8; align-items:flex-start; }
+  .checklist li::before { content:'✓'; color:var(--accent); font-family:var(--mono); font-size:0.78rem; flex-shrink:0; margin-top:3px; }
+
+  /* Category pill */
+  .pill { display:inline-block; font-family:var(--mono); font-size:0.68rem; letter-spacing:0.1em; padding:4px 10px; border:1px solid rgba(0,229,255,0.25); border-radius:2px; color:var(--accent3); background:rgba(0,229,255,0.05); text-transform:uppercase; margin:3px; }
+
+  @media(max-width:768px) {
+    nav { padding:0 1rem; }
+    .nav-links { display:none; }
+    section { padding:70px 5vw; }
+    #hero { padding:100px 5vw 60px; }
+    .hero-orb,.hero-ring { display:none; }
+    .about-inner,.contact-inner { grid-template-columns:1fr; gap:2.5rem; }
+    .modal-inner { padding:60px 1.25rem 80px; }
+  }
 </style>
 </head>
 <body>
@@ -556,10 +222,10 @@
 <section id="hero">
   <div class="hero-orb"></div>
   <div class="hero-ring"></div>
-  <div style="position:relative; z-index:2;">
+  <div style="position:relative;z-index:2;">
     <div class="hero-tag">Cybersecurity Professional</div>
     <h1>Securing the<br><span class="accent">digital frontier</span><br>one standard at a time.</h1>
-    <p class="hero-sub">In-depth expertise in ISMS, SOC Operations, VAPT, ISO standards, and compliance frameworks — making complex cybersecurity accessible.</p>
+    <p class="hero-sub">8 years in IT Security, GRC, SOC Operations, and enterprise audits — bridging technical security with governance, risk, and compliance.</p>
     <div class="hero-certs">
       <span class="cert-badge">CEH</span>
       <span class="cert-badge">CCNA</span>
@@ -574,24 +240,12 @@
 </section>
 
 <!-- STATS -->
-<div id="stats">
+<div id="stats" style="position:relative;z-index:1;">
   <div class="stats-grid">
-    <div class="stat-item">
-      <span class="stat-num">4+</span>
-      <span class="stat-label">Years Experience</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">59+</span>
-      <span class="stat-label">ISO 27K Standards Covered</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Professional Certifications</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">3+</span>
-      <span class="stat-label">Major Frameworks</span>
-    </div>
+    <div class="stat-item"><span class="stat-num">8+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat-item"><span class="stat-num">59+</span><span class="stat-label">ISO 27K Standards</span></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">Certifications</span></div>
+    <div class="stat-item"><span class="stat-num">6+</span><span class="stat-label">Major Frameworks</span></div>
   </div>
 </div>
 
@@ -603,41 +257,17 @@
     <p class="section-desc">Comprehensive coverage of cybersecurity disciplines — from governance and compliance to hands-on technical security operations.</p>
   </div>
   <div class="expertise-grid fade-up">
-    <div class="expertise-card">
-      <div class="exp-icon">🛡️</div>
-      <h3>ISMS & ISO 27001</h3>
-      <p>Full lifecycle implementation and audit of Information Security Management Systems. Experienced with ISO 27001:2013, gap analysis, internal audits, and certification readiness.</p>
-    </div>
-    <div class="expertise-card">
-      <div class="exp-icon">🔍</div>
-      <h3>SOC Operations</h3>
-      <p>Security Operations Center experience with SIEM tools, threat detection, incident triage, and security monitoring — ensuring organizations maintain real-time visibility.</p>
-    </div>
-    <div class="expertise-card">
-      <div class="exp-icon">⚡</div>
-      <h3>VAPT & Vulnerability Assessment</h3>
-      <p>Conducting Vulnerability Assessment and Penetration Testing to identify, quantify, and prioritize security risks across networks, applications, and infrastructure.</p>
-    </div>
-    <div class="expertise-card">
-      <div class="exp-icon">📋</div>
-      <h3>Audit & Compliance</h3>
-      <p>Comprehensive security audits aligned with HIPAA, ISO 22301, ISO 27001, and other regulatory frameworks. Helping organizations achieve and maintain compliance.</p>
-    </div>
-    <div class="expertise-card">
-      <div class="exp-icon">🔒</div>
-      <h3>Risk Management</h3>
-      <p>ISO 27005-aligned information security risk assessments — identifying threats, evaluating controls, and implementing risk treatment plans to protect critical assets.</p>
-    </div>
-    <div class="expertise-card">
-      <div class="exp-icon">☁️</div>
-      <h3>Cloud Security</h3>
-      <p>Security guidance for cloud environments based on ISO 27017 and ISO 27018 — covering data protection, access control, and PII safeguards for cloud services.</p>
-    </div>
+    <div class="expertise-card"><div class="exp-icon">🛡️</div><h3>ISMS & ISO 27001</h3><p>Full lifecycle implementation and audit of Information Security Management Systems. Experienced with ISO 27001:2013, gap analysis, internal audits, and certification readiness.</p></div>
+    <div class="expertise-card"><div class="exp-icon">🔍</div><h3>SOC Operations</h3><p>Security Operations Center experience with SIEM tools, threat detection, incident triage, and security monitoring — ensuring real-time visibility.</p></div>
+    <div class="expertise-card"><div class="exp-icon">⚡</div><h3>VAPT & Vulnerability Assessment</h3><p>Conducting Vulnerability Assessment and Penetration Testing to identify, quantify, and prioritize security risks across networks, applications, and infrastructure.</p></div>
+    <div class="expertise-card"><div class="exp-icon">📋</div><h3>Audit & Compliance</h3><p>Comprehensive security audits aligned with HIPAA, ISO 22301, ISO 27001, and other regulatory frameworks. Helping organizations achieve and maintain compliance.</p></div>
+    <div class="expertise-card"><div class="exp-icon">🔒</div><h3>Risk Management</h3><p>ISO 27005-aligned information security risk assessments — identifying threats, evaluating controls, and implementing risk treatment plans.</p></div>
+    <div class="expertise-card"><div class="exp-icon">☁️</div><h3>Cloud Security</h3><p>Security guidance for cloud environments based on ISO 27017 and ISO 27018 — covering data protection, access control, and PII safeguards.</p></div>
   </div>
 </section>
 
 <!-- ARTICLES -->
-<section id="articles" style="background: var(--bg2);">
+<section id="articles" style="background:var(--bg2);">
   <div class="fade-up">
     <div class="section-label">Knowledge Base</div>
     <h2>Featured Articles</h2>
@@ -645,66 +275,51 @@
   </div>
   <div class="articles-grid fade-up">
 
-    <a href="https://cyberenthu.wordpress.com/2024/02/29/iso-iec-27000-series/" target="_blank" class="article-card">
+    <div class="article-card" onclick="openArticle('iso27000')">
       <div class="article-tag">ISO Standards · 2024</div>
       <h3>ISO/IEC 27000 Series — Complete Overview</h3>
       <p>A comprehensive reference covering all 59 published ISO 27K standards — from information security management to cloud services, network security, and digital forensics.</p>
-      <div class="article-meta">
-        <span>Feb 2024</span>
-        <span>Read article →</span>
-      </div>
-    </a>
+      <div class="article-meta"><span>Feb 2024</span><span>Read article →</span></div>
+    </div>
 
-    <a href="https://cyberenthu.wordpress.com/2022/04/27/hippa/" target="_blank" class="article-card">
+    <div class="article-card" onclick="openArticle('hipaa')">
       <div class="article-tag">Compliance · 2022</div>
       <h3>HIPAA — Health Data Privacy & Security</h3>
       <p>Deep dive into HIPAA compliance: five security rule categories, administrative and technical safeguards, covered entities, and PHI protection requirements.</p>
-      <div class="article-meta">
-        <span>Apr 2022</span>
-        <span>Read article →</span>
-      </div>
-    </a>
+      <div class="article-meta"><span>Apr 2022</span><span>Read article →</span></div>
+    </div>
 
-    <a href="https://cyberenthu.wordpress.com/2021/11/01/iso-223012019-overview/" target="_blank" class="article-card">
+    <div class="article-card" onclick="openArticle('iso22301')">
       <div class="article-tag">Business Continuity · 2021</div>
       <h3>ISO 22301:2019 — Business Continuity Management</h3>
       <p>Full overview of ISO 22301:2019 including clauses, auditor checklist templates, BIA guidance, and recovery objectives for building resilient organizations.</p>
-      <div class="article-meta">
-        <span>Nov 2021</span>
-        <span>Read article →</span>
-      </div>
-    </a>
+      <div class="article-meta"><span>Nov 2021</span><span>Read article →</span></div>
+    </div>
 
-    <a href="https://cyberenthu.wordpress.com/2021/07/31/iso-27001-2013-standard-implementation/" target="_blank" class="article-card">
+    <div class="article-card" onclick="openArticle('iso27001impl')">
       <div class="article-tag">Implementation Guide · 2021</div>
       <h3>ISO 27001:2013 — 11 Clauses & 114 Controls</h3>
       <p>Detailed analysis of ISO 27001:2013 implementation — mapping all 11 clauses and 114 Annex A controls for organizations pursuing ISMS certification.</p>
-      <div class="article-meta">
-        <span>Jul 2021</span>
-        <span>Read article →</span>
-      </div>
-    </a>
+      <div class="article-meta"><span>Jul 2021</span><span>Read article →</span></div>
+    </div>
 
-    <a href="https://cyberenthu.wordpress.com/2021/07/25/iso-iec-270012013/" target="_blank" class="article-card">
+    <div class="article-card" onclick="openArticle('iso27001primer')">
       <div class="article-tag">Framework Guide · 2021</div>
       <h3>ISO/IEC 27001:2013 — The Complete ISMS Primer</h3>
       <p>Why ISO 27001 matters, which organizations need it, the audit process explained step by step, and what auditors look for — covering CIA triad to Non-Conformance handling.</p>
-      <div class="article-meta">
-        <span>Jul 2021</span>
-        <span>Read article →</span>
-      </div>
-    </a>
+      <div class="article-meta"><span>Jul 2021</span><span>Read article →</span></div>
+    </div>
 
-    <a href="https://cyberenthu.wordpress.com/" target="_blank" class="article-card" style="border-style:dashed; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:200px;">
-      <div style="font-size:2rem; margin-bottom:1rem; opacity:0.4;">+</div>
+    <div class="article-card" style="border-style:dashed;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:200px;">
+      <div style="font-size:2rem;margin-bottom:1rem;opacity:0.4;">+</div>
       <div class="article-tag" style="margin:0 0 8px;">More coming soon</div>
-      <p style="font-size:0.85rem;">More in-depth cybersecurity guides and framework analyses being published regularly.</p>
-    </a>
+      <p style="font-size:0.85rem;">More in-depth cybersecurity guides being published regularly.</p>
+    </div>
 
   </div>
 </section>
 
-<!-- STANDARDS REFERENCE -->
+<!-- STANDARDS -->
 <section id="standards">
   <div class="fade-up">
     <div class="section-label">Reference</div>
@@ -733,61 +348,30 @@
     <div class="about-text fade-up">
       <div class="section-label">About</div>
       <h2>Shavra Ayub Shah</h2>
+      <p style="font-family:var(--mono);font-size:0.75rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:1.5rem;">Cybersecurity & GRC Specialist</p>
       <div class="line-divider"></div>
-      <p><strong>IT Professional with 4+ years of experience</strong> in Cybersecurity — specializing in SIEM, SOC Operations, VAPT, Vulnerability Assessment, and Audit & Compliance frameworks.</p>
-      <p>I created CyberEnthu to make complex cybersecurity standards and frameworks accessible to professionals, students, and organizations navigating the ever-growing landscape of information security requirements.</p>
-      <p>My work spans technical security operations as well as governance and compliance — helping bridge the gap between policy frameworks and practical implementation in real-world environments.</p>
-      <div style="margin-top: 2rem; display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="https://www.linkedin.com/in/shavra-ayub-shah/" target="_blank" class="btn-secondary" style="padding:10px 20px; font-size:0.75rem;">LinkedIn Profile →</a>
-        <a href="https://cyberenthu.wordpress.com/" target="_blank" class="btn-secondary" style="padding:10px 20px; font-size:0.75rem;">All Articles →</a>
+      <p><strong>Cybersecurity & GRC Specialist with 8 years of experience</strong> across IT Security, Governance, Risk, Compliance, and Security Operations — working at the intersection of technical security and enterprise-level regulatory alignment.</p>
+      <p>I have led and managed enterprise audits across major frameworks including <strong>ISO 27001, SOC 2, HIPAA, PCI DSS, GDPR, and TISAX</strong>, with hands-on experience implementing risk frameworks and strengthening information security posture at scale. My background in SIEM and VAPT gives me the technical foundation to integrate security operations directly with compliance requirements — not treat them as separate disciplines.</p>
+      <p>I created <strong>CyberEnthu</strong> to close the gap between dense, technical standards documentation and practical day-to-day implementation. Whether you're a security professional navigating a new framework, a student building your foundation, or an organisation preparing for certification — this is a resource built from real-world audit and operations experience.</p>
+      <div style="margin-top:2rem;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://www.linkedin.com/in/shavra-ayub-shah/" target="_blank" class="btn-secondary" style="padding:10px 20px;font-size:0.75rem;">LinkedIn Profile →</a>
       </div>
     </div>
     <div class="skills-panel fade-up">
       <h3>Technical Proficiency</h3>
-      <div class="skill-row">
-        <div class="skill-name"><span>ISO 27001 / ISMS</span><span>Expert</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>SOC / SIEM Operations</span><span>Advanced</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>VAPT / Vulnerability Assessment</span><span>Advanced</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>Risk Management (ISO 27005)</span><span>Expert</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>Compliance (HIPAA, ISO 22301)</span><span>Advanced</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-name"><span>Audit & Assurance</span><span>Advanced</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
-      </div>
-
+      <div class="skill-row"><div class="skill-name"><span>ISO 27001 / ISMS</span><span>Expert</span></div><div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>GRC — Governance, Risk & Compliance</span><span>Expert</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>SOC 2 / PCI DSS / GDPR / TISAX</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>SOC / SIEM Operations</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>VAPT / Vulnerability Assessment</span><span>Advanced</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-row"><div class="skill-name"><span>Risk Frameworks & Audit Management</span><span>Expert</span></div><div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div></div>
       <div style="margin-top:2.5rem;">
         <h3 style="margin-bottom:1rem;">Certifications</h3>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-          <div style="background:rgba(0,229,255,0.05); border:1px solid var(--border); border-radius:3px; padding:14px; text-align:center;">
-            <div style="font-family:var(--mono); font-size:1.1rem; color:var(--accent); font-weight:700;">CEH</div>
-            <div style="font-size:0.73rem; color:var(--muted); margin-top:4px;">Certified Ethical Hacker</div>
-          </div>
-          <div style="background:rgba(0,229,255,0.05); border:1px solid var(--border); border-radius:3px; padding:14px; text-align:center;">
-            <div style="font-family:var(--mono); font-size:1.1rem; color:var(--accent); font-weight:700;">CCNA</div>
-            <div style="font-size:0.73rem; color:var(--muted); margin-top:4px;">Cisco Certified Network Assoc.</div>
-          </div>
-          <div style="background:rgba(0,229,255,0.05); border:1px solid var(--border); border-radius:3px; padding:14px; text-align:center;">
-            <div style="font-family:var(--mono); font-size:1.1rem; color:var(--accent); font-weight:700;">ISO LA</div>
-            <div style="font-size:0.73rem; color:var(--muted); margin-top:4px;">ISO 27001 Lead Auditor</div>
-          </div>
-          <div style="background:rgba(0,229,255,0.05); border:1px solid var(--border); border-radius:3px; padding:14px; text-align:center;">
-            <div style="font-family:var(--mono); font-size:1.1rem; color:var(--accent); font-weight:700;">CISA</div>
-            <div style="font-size:0.73rem; color:var(--muted); margin-top:4px;">Certified Information Systems Auditor</div>
-          </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="background:rgba(0,229,255,0.05);border:1px solid var(--border);border-radius:3px;padding:14px;text-align:center;"><div style="font-family:var(--mono);font-size:1.1rem;color:var(--accent);font-weight:700;">CEH</div><div style="font-size:0.73rem;color:var(--muted);margin-top:4px;">Certified Ethical Hacker</div></div>
+          <div style="background:rgba(0,229,255,0.05);border:1px solid var(--border);border-radius:3px;padding:14px;text-align:center;"><div style="font-family:var(--mono);font-size:1.1rem;color:var(--accent);font-weight:700;">CCNA</div><div style="font-size:0.73rem;color:var(--muted);margin-top:4px;">Cisco Certified Network Assoc.</div></div>
+          <div style="background:rgba(0,229,255,0.05);border:1px solid var(--border);border-radius:3px;padding:14px;text-align:center;"><div style="font-family:var(--mono);font-size:1.1rem;color:var(--accent);font-weight:700;">ISO LA</div><div style="font-size:0.73rem;color:var(--muted);margin-top:4px;">ISO 27001 Lead Auditor</div></div>
+          <div style="background:rgba(0,229,255,0.05);border:1px solid var(--border);border-radius:3px;padding:14px;text-align:center;"><div style="font-family:var(--mono);font-size:1.1rem;color:var(--accent);font-weight:700;">CISA</div><div style="font-size:0.73rem;color:var(--muted);margin-top:4px;">Certified Information Systems Auditor</div></div>
         </div>
       </div>
     </div>
@@ -799,7 +383,7 @@
   <div class="fade-up">
     <div class="section-label">Get in touch</div>
     <h2>Contact</h2>
-    <p class="section-desc">Have a question about a cybersecurity framework, compliance challenge, or want to connect? Reach out.</p>
+    <p class="section-desc">Have a question about a cybersecurity framework, compliance challenge, or want to connect?</p>
   </div>
   <div class="contact-inner fade-up">
     <div class="contact-info">
@@ -807,75 +391,495 @@
       <div class="contact-links">
         <a href="https://www.linkedin.com/in/shavra-ayub-shah/" target="_blank" class="contact-link">
           <div class="contact-link-icon">in</div>
-          <div>
-            <div style="font-size:0.88rem; color:var(--text); font-weight:500;">LinkedIn</div>
-            <div style="font-size:0.78rem; color:var(--muted);">shavra-ayub-shah</div>
-          </div>
-        </a>
-        <a href="https://cyberenthu.wordpress.com/" target="_blank" class="contact-link">
-          <div class="contact-link-icon" style="font-size:13px;">WP</div>
-          <div>
-            <div style="font-size:0.88rem; color:var(--text); font-weight:500;">WordPress Blog</div>
-            <div style="font-size:0.78rem; color:var(--muted);">cyberenthu.wordpress.com</div>
-          </div>
+          <div><div style="font-size:0.88rem;color:var(--text);font-weight:500;">LinkedIn</div><div style="font-size:0.78rem;color:var(--muted);">shavra-ayub-shah</div></div>
         </a>
       </div>
     </div>
     <form onsubmit="handleForm(event)">
-      <div class="form-group">
-        <label>Name</label>
-        <input type="text" placeholder="Your full name" />
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="your@email.com" />
-      </div>
-      <div class="form-group">
-        <label>Message</label>
-        <textarea rows="5" placeholder="Your message..."></textarea>
-      </div>
+      <div class="form-group"><label>Name</label><input type="text" placeholder="Your full name" /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
+      <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Your message..."></textarea></div>
       <button type="submit" class="form-submit">Send Message</button>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">cyber/enthu</div>
   <p>© 2025 Shavra Ayub Shah · Cybersecurity Professional</p>
-  <p style="font-size:0.72rem; opacity:0.5;">CEH · CCNA · ISO 27001-LA · CISA</p>
+  <p style="font-size:0.72rem;opacity:0.5;">CEH · CCNA · ISO 27001-LA · CISA</p>
 </footer>
 
+<!-- ===================== ARTICLE MODALS ===================== -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-inner">
+    <button class="modal-back" onclick="closeArticle()">← Back to Articles</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
 <script>
-  // Scroll reveal
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+// ---- SCROLL REVEAL ----
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
-  // Form handler
-  function handleForm(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Message Sent ✓';
-    btn.style.background = '#00ff88';
-    setTimeout(() => {
-      btn.textContent = 'Send Message';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
+// ---- FORM ----
+function handleForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = '#00ff88';
+  setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; e.target.reset(); }, 3000);
+}
 
-  // Active nav highlight on scroll
-  const sections = document.querySelectorAll('section[id], #stats');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) cur = s.id; });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--accent)' : '';
-    });
-  });
+// ---- MODAL ----
+function openArticle(id) {
+  document.getElementById('modal-content').innerHTML = articles[id];
+  const m = document.getElementById('modal');
+  m.classList.add('open');
+  m.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+function closeArticle() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeArticle(); });
+
+// ---- ARTICLE CONTENT ----
+const articles = {
+
+iso27000: `
+<div class="modal-header">
+  <div class="modal-tag">ISO Standards · Reference Guide</div>
+  <div class="modal-title">ISO/IEC 27000 Series — Complete Standard Reference</div>
+  <div class="modal-meta"><span>Published: February 2024</span><span>Author: Shavra Ayub Shah</span><span>CEH · ISO 27001-LA · CISA</span></div>
+</div>
+<div class="article-body">
+  <p>The <strong>ISO/IEC 27000 family</strong> is the world's most widely recognised series of international standards for Information Security Management. It provides a comprehensive framework for establishing, implementing, maintaining, and continually improving an Information Security Management System (ISMS). Below is a complete reference of all published standards in this family.</p>
+
+  <div class="info-box"><p>💡 <strong>Quick Tip:</strong> ISO 27001 is the only certifiable standard in the series. All others provide guidance, controls, and sector-specific extensions that support the core ISMS framework.</p></div>
+
+  <h2>Foundation Standards</h2>
+  <table class="std-table">
+    <tr><th>Standard</th><th>Title</th><th>Purpose</th></tr>
+    <tr><td>ISO/IEC 27000</td><td>ISMS Overview & Vocabulary</td><td>Defines terms and concepts used across the entire series</td></tr>
+    <tr><td>ISO/IEC 27001</td><td>ISMS Requirements</td><td>The certifiable standard — defines ISMS requirements</td></tr>
+    <tr><td>ISO/IEC 27002</td><td>Code of Practice</td><td>Best practice guidance for implementing security controls</td></tr>
+    <tr><td>ISO/IEC 27003</td><td>Implementation Guidance</td><td>Guidance for implementing ISO 27001</td></tr>
+    <tr><td>ISO/IEC 27004</td><td>Monitoring & Measurement</td><td>Frameworks for measuring ISMS effectiveness</td></tr>
+    <tr><td>ISO/IEC 27005</td><td>Risk Management</td><td>Guidelines for information security risk management</td></tr>
+    <tr><td>ISO/IEC 27006</td><td>Certification Bodies</td><td>Requirements for bodies auditing and certifying ISMS</td></tr>
+    <tr><td>ISO/IEC 27007</td><td>Auditing Guidelines</td><td>Guidance for auditing information security management systems</td></tr>
+  </table>
+
+  <h2>Sector-Specific Standards</h2>
+  <table class="std-table">
+    <tr><th>Standard</th><th>Sector</th></tr>
+    <tr><td>ISO/IEC 27011</td><td>Telecommunications organisations</td></tr>
+    <tr><td>ISO/IEC TR 27015</td><td>Financial services</td></tr>
+    <tr><td>ISO/IEC 27017</td><td>Cloud service providers</td></tr>
+    <tr><td>ISO/IEC 27018</td><td>Protection of PII in public clouds</td></tr>
+    <tr><td>ISO/IEC 27019</td><td>Process control in the energy industry</td></tr>
+    <tr><td>ISO 27799</td><td>Health informatics (using ISO/IEC 27002)</td></tr>
+  </table>
+
+  <h2>Application Security (ISO/IEC 27034 Series)</h2>
+  <p>The 27034 series is specifically focused on application security. It provides a structured approach to integrating security into the software development lifecycle.</p>
+  <ul class="numbered-list">
+    <li>Part 1 — Guideline for application security (overview and concepts)</li>
+    <li>Part 2 — Organisation normative framework</li>
+    <li>Part 3 — Application security management process</li>
+    <li>Part 5 — Protocols and application security controls data structure</li>
+    <li>Part 6 — Case studies</li>
+    <li>Part 7 — Assurance prediction framework</li>
+  </ul>
+
+  <h2>Network Security (ISO/IEC 27033 Series)</h2>
+  <p>A 6-part series covering the full spectrum of network security — from design principles to VPNs and wireless security.</p>
+  <ul class="numbered-list">
+    <li>Part 1 — Overview and concepts</li>
+    <li>Part 2 — Design and implementation guidelines</li>
+    <li>Part 3 — Reference networking scenarios</li>
+    <li>Part 4 — Securing communications using security gateways</li>
+    <li>Part 5 — Virtual Private Networks (VPNs)</li>
+    <li>Part 6 — Securing wireless IP network access</li>
+  </ul>
+
+  <h2>Incident Management (ISO/IEC 27035 Series)</h2>
+  <ul class="numbered-list">
+    <li>Part 1 — Principles of incident management</li>
+    <li>Part 2 — Guidelines to plan and prepare for incident response</li>
+    <li>Part 3 — Guidelines for ICT incident response operations</li>
+  </ul>
+
+  <h2>Digital Forensics Standards</h2>
+  <table class="std-table">
+    <tr><th>Standard</th><th>Focus Area</th></tr>
+    <tr><td>ISO/IEC 27037</td><td>Identification, collection, and preservation of digital evidence</td></tr>
+    <tr><td>ISO/IEC 27041</td><td>Investigation assurance</td></tr>
+    <tr><td>ISO/IEC 27042</td><td>Analysis and interpretation of digital evidence</td></tr>
+    <tr><td>ISO/IEC 27043</td><td>Incident investigation principles and processes</td></tr>
+    <tr><td>ISO/IEC 27050</td><td>Electronic discovery (3-part series)</td></tr>
+  </table>
+
+  <h2>Privacy & Supplier Standards</h2>
+  <table class="std-table">
+    <tr><th>Standard</th><th>Description</th></tr>
+    <tr><td>ISO/IEC 27701</td><td>Privacy Information Management System (PIMS) — extension to ISO 27001/27002 for privacy</td></tr>
+    <tr><td>ISO/IEC 27036-1</td><td>Supplier relationships — Overview and concepts</td></tr>
+    <tr><td>ISO/IEC 27036-3</td><td>ICT supply chain security guidelines</td></tr>
+    <tr><td>ISO/IEC 27036-4</td><td>Security of cloud services in supplier relationships</td></tr>
+  </table>
+
+  <div class="warn-box"><p>⚠️ <strong>Note:</strong> Several standards in this series are still under development. Always refer to the official ISO website for the latest publication status before citing in compliance documentation.</p></div>
+</div>
+`,
+
+hipaa: `
+<div class="modal-header">
+  <div class="modal-tag">Compliance · US Healthcare Regulation</div>
+  <div class="modal-title">HIPAA — Health Insurance Portability & Accountability Act</div>
+  <div class="modal-meta"><span>Published: April 2022</span><span>Author: Shavra Ayub Shah</span><span>CEH · ISO 27001-LA · CISA</span></div>
+</div>
+<div class="article-body">
+  <p>The <strong>Health Insurance Portability and Accountability Act (HIPAA)</strong> is landmark United States legislation that establishes national standards for the protection of sensitive patient health information. In an era of increasing cyber attacks targeting healthcare, HIPAA compliance is more critical than ever.</p>
+
+  <div class="info-box"><p>💡 <strong>Definition:</strong> Any organisation that deals with Protected Health Information (PHI) must have physical, network, and process security measures in place and follow them to ensure HIPAA compliance.</p></div>
+
+  <h2>Who Must Comply?</h2>
+  <h3>Covered Entities</h3>
+  <p>Any individual or organisation providing treatment, payment, or operations in healthcare — including hospitals, clinics, health insurers, and healthcare clearinghouses.</p>
+  <h3>Business Associates</h3>
+  <p>Any third party that has access to patient information and provides support in treatment, payment, or operations — including IT vendors, billing companies, and cloud storage providers.</p>
+  <div class="warn-box"><p>⚠️ Subcontractors and downstream business associates are also required to comply, even if they only handle data indirectly.</p></div>
+
+  <h2>Purpose & Benefits of HIPAA</h2>
+  <ul class="checklist">
+    <li>Protection against PHI loss and unauthorised disclosure</li>
+    <li>Fraud and abuse controls to prevent healthcare fraud</li>
+    <li>Prohibits discrimination based on health status</li>
+    <li>Sets boundaries on the use and release of medical records</li>
+    <li>Gives patients rights over their own health information</li>
+    <li>Encourages electronic health record adoption with security guardrails</li>
+  </ul>
+
+  <h2>The 5 HIPAA Security Rule Categories</h2>
+
+  <h3>1. Administrative Safeguards</h3>
+  <p>The largest category — covering the policies and procedures that govern how a workforce handles PHI.</p>
+  <table class="std-table">
+    <tr><th>Standard</th><th>Description</th></tr>
+    <tr><td>Security Management</td><td>Risk analysis, risk management, sanction policy, information system activity review</td></tr>
+    <tr><td>Security Responsibility</td><td>Assigning a designated security officer</td></tr>
+    <tr><td>Workforce Security</td><td>Authorisation, supervision, workforce clearance, and termination procedures</td></tr>
+    <tr><td>Information Access Management</td><td>Isolating healthcare clearinghouse functions, access authorisation and establishment</td></tr>
+    <tr><td>Security Awareness & Training</td><td>Malware protection, log-in monitoring, password management training</td></tr>
+    <tr><td>Contingency Planning</td><td>Data backup, disaster recovery, emergency mode operations</td></tr>
+  </table>
+
+  <h3>2. Physical Safeguards</h3>
+  <p>Controls to protect physical access to systems that store or process PHI.</p>
+  <ul class="checklist">
+    <li>Facility access controls — limiting and monitoring physical access</li>
+    <li>Workstation use policies — defining appropriate use of workstations</li>
+    <li>Workstation security — physical positioning and protection of screens</li>
+    <li>Device and media controls — governing hardware and electronic media disposal</li>
+  </ul>
+
+  <h3>3. Technical Safeguards</h3>
+  <p>Technology and policies that protect PHI in electronic systems.</p>
+  <table class="std-table">
+    <tr><th>Control</th><th>Requirement</th></tr>
+    <tr><td>Access Control</td><td>Unique user IDs, emergency access, automatic logoff, encryption</td></tr>
+    <tr><td>Audit Controls</td><td>Hardware, software, and procedural mechanisms to record and examine activity</td></tr>
+    <tr><td>Integrity</td><td>Ensuring PHI is not improperly altered or destroyed</td></tr>
+    <tr><td>Authentication</td><td>Verifying that a person or entity seeking access is who they claim</td></tr>
+    <tr><td>Transmission Security</td><td>Protecting PHI being transmitted over electronic networks (encryption)</td></tr>
+  </table>
+
+  <h3>4. Organisational Requirements</h3>
+  <p>Formal contracts between covered entities and business associates (Business Associate Agreements — BAAs) that legally bind both parties to HIPAA standards. Group health plans also have specific requirements for protecting PHI held by plan sponsors.</p>
+
+  <h3>5. Policies, Procedures & Documentation</h3>
+  <p>All HIPAA-covered entities must implement reasonable and appropriate policies, document those policies, and retain documentation for a minimum of <strong>6 years</strong> from the date of creation or the date it was last in effect.</p>
+
+  <h2>Key Takeaways for Compliance Teams</h2>
+  <ul class="checklist">
+    <li>Conduct annual risk assessments aligned to the Security Rule</li>
+    <li>Train all workforce members — not just IT — on PHI handling</li>
+    <li>Execute BAAs with every business associate before sharing PHI</li>
+    <li>Encrypt PHI both at rest and in transit wherever technically feasible</li>
+    <li>Establish a breach notification policy — 60-day window applies to notifying HHS</li>
+    <li>Document everything — documentation is your primary defence during an audit</li>
+  </ul>
+</div>
+`,
+
+iso22301: `
+<div class="modal-header">
+  <div class="modal-tag">Business Continuity · ISO Standard</div>
+  <div class="modal-title">ISO 22301:2019 — Business Continuity Management Systems</div>
+  <div class="modal-meta"><span>Published: November 2021</span><span>Author: Shavra Ayub Shah</span><span>CEH · ISO 27001-LA · CISA</span></div>
+</div>
+<div class="article-body">
+  <p><strong>ISO 22301:2019</strong> is the international standard for Business Continuity Management Systems (BCMS). Published by the International Organization for Standardization, it specifies requirements for organisations to plan, establish, implement, operate, monitor, review, maintain, and continually improve a documented management system to protect against, reduce the likelihood of, and ensure recovery from disruptive incidents.</p>
+
+  <div class="info-box"><p>💡 ISO 22301:2019 replaced ISO 22301:2012 (which was originally based on British standard BS 25999-2). The 2019 revision brings more flexibility and less prescriptiveness — adding more value to organisations and their customers.</p></div>
+
+  <h2>Why Implement ISO 22301?</h2>
+  <ul class="checklist">
+    <li>Improve processes and organisational resilience focus</li>
+    <li>Develop robust response and recovery procedures</li>
+    <li>Protect assets, revenue, and business reputation</li>
+    <li>Ensure continuity of critical business operations</li>
+    <li>Increase competitive advantage and enhance corporate reputation</li>
+    <li>Meet legal and regulatory requirements</li>
+    <li>Obtain independent assessment of your security posture</li>
+  </ul>
+
+  <h2>The Plan-Do-Check-Act Cycle</h2>
+  <p>ISO 22301 follows the same PDCA (Plan-Do-Check-Act) model used across all ISO management system standards — ensuring continuous improvement is embedded in the framework.</p>
+  <table class="std-table">
+    <tr><th>Phase</th><th>ISO Clause</th><th>Activity</th></tr>
+    <tr><td>Plan</td><td>Clauses 4–6</td><td>Establish context, leadership, and planning</td></tr>
+    <tr><td>Do</td><td>Clauses 7–8</td><td>Support, operation, BIA, strategy, and procedures</td></tr>
+    <tr><td>Check</td><td>Clause 9</td><td>Performance evaluation, audit, management review</td></tr>
+    <tr><td>Act</td><td>Clause 10</td><td>Nonconformity, corrective action, continual improvement</td></tr>
+  </table>
+
+  <h2>Standard Structure — All Clauses</h2>
+
+  <h3>Clause 4 — Context of the Organisation</h3>
+  <ul class="checklist">
+    <li>Understanding the organisation and its internal/external context</li>
+    <li>Identifying needs and expectations of interested parties</li>
+    <li>Determining the BCMS scope</li>
+  </ul>
+
+  <h3>Clause 5 — Leadership</h3>
+  <ul class="checklist">
+    <li>Top management commitment and visible championing of the BCMS</li>
+    <li>Establishing a documented business continuity policy</li>
+    <li>Assigning roles, responsibilities, and authorities</li>
+  </ul>
+
+  <h3>Clause 6 — Planning</h3>
+  <ul class="checklist">
+    <li>Addressing risks and opportunities</li>
+    <li>Setting measurable business continuity objectives</li>
+  </ul>
+
+  <h3>Clause 7 — Support</h3>
+  <ul class="checklist">
+    <li>Resource allocation (people, tools, finances)</li>
+    <li>Competence and awareness requirements</li>
+    <li>Internal and external communication protocols</li>
+    <li>Document control and change management</li>
+  </ul>
+
+  <h3>Clause 8 — Operation (Core Requirements)</h3>
+  <p>This is the most detailed clause — containing the substantive requirements for business continuity practice.</p>
+  <table class="std-table">
+    <tr><th>Sub-clause</th><th>Requirement</th></tr>
+    <tr><td>8.2</td><td>Business Impact Analysis (BIA) and risk assessment</td></tr>
+    <tr><td>8.3</td><td>Business continuity strategy development</td></tr>
+    <tr><td>8.4</td><td>Establishing and implementing BCMS procedures</td></tr>
+    <tr><td>8.5</td><td>Exercising and testing continuity plans</td></tr>
+  </table>
+
+  <h2>Auditor Checklist — Key Questions</h2>
+  <h4>Context & Leadership</h4>
+  <ul class="checklist">
+    <li>Has management defined and communicated measurable BC objectives?</li>
+    <li>Are the BCMS policy and objectives aligned with organisational strategy?</li>
+    <li>Do responsible individuals have adequate skills and experience?</li>
+  </ul>
+  <h4>Operations & BIA</h4>
+  <ul class="checklist">
+    <li>Is a Business Impact Analysis scheduled and conducted regularly?</li>
+    <li>Have Recovery Time Objectives (RTOs) been defined for priority activities?</li>
+    <li>Have minimum service levels for critical activities been determined?</li>
+    <li>Has the BC capability of key suppliers been assessed?</li>
+  </ul>
+  <h4>Testing & Improvement</h4>
+  <ul class="checklist">
+    <li>Are BC procedures tested using well-developed scenarios regularly?</li>
+    <li>Are after-action reports produced to capture lessons learned?</li>
+    <li>Are non-conformities identified and corrective actions tracked?</li>
+    <li>Does top management conduct formal BCMS reviews?</li>
+  </ul>
+</div>
+`,
+
+iso27001impl: `
+<div class="modal-header">
+  <div class="modal-tag">Implementation Guide · ISO 27001</div>
+  <div class="modal-title">ISO 27001:2013 — 11 Clauses & 114 Controls Explained</div>
+  <div class="modal-meta"><span>Published: July 2021</span><span>Author: Shavra Ayub Shah</span><span>CEH · ISO 27001-LA · CISA</span></div>
+</div>
+<div class="article-body">
+  <p>ISO 27001:2013 is structured into two distinct parts: <strong>11 clauses</strong> (numbered 0–10) that define the management system requirements, and <strong>Annex A</strong>, which contains 114 controls across 14 control categories. Every organisation seeking ISO 27001 certification must demonstrate conformance with the clauses and select applicable controls from Annex A.</p>
+
+  <div class="info-box"><p>💡 Not all 114 controls are mandatory — organisations must document which controls are applicable and justify any exclusions in their <strong>Statement of Applicability (SoA)</strong>.</p></div>
+
+  <h2>Part 1 — The 11 Clauses</h2>
+  <table class="std-table">
+    <tr><th>Clause</th><th>Title</th><th>Nature</th></tr>
+    <tr><td>0</td><td>Introduction</td><td>Context and compatibility with other standards</td></tr>
+    <tr><td>1</td><td>Scope</td><td>What the standard covers</td></tr>
+    <tr><td>2</td><td>Normative References</td><td>ISO/IEC 27000 terminology</td></tr>
+    <tr><td>3</td><td>Terms & Definitions</td><td>Vocabulary used throughout</td></tr>
+    <tr><td>4</td><td>Context of the Organisation</td><td>Understanding internal/external context, scope</td></tr>
+    <tr><td>5</td><td>Leadership</td><td>Management commitment, policy, roles</td></tr>
+    <tr><td>6</td><td>Planning</td><td>Risk treatment, ISMS objectives</td></tr>
+    <tr><td>7</td><td>Support</td><td>Resources, awareness, communication, documentation</td></tr>
+    <tr><td>8</td><td>Operation</td><td>Risk assessment and treatment execution</td></tr>
+    <tr><td>9</td><td>Performance Evaluation</td><td>Monitoring, internal audit, management review</td></tr>
+    <tr><td>10</td><td>Improvement</td><td>Nonconformity, corrective action, continual improvement</td></tr>
+  </table>
+
+  <h2>Part 2 — Annex A: 14 Control Categories</h2>
+
+  <h3>A.5 — Information Security Policies (2 controls)</h3>
+  <p>Establishes the management direction for information security in accordance with business requirements and relevant laws and regulations.</p>
+
+  <h3>A.6 — Organisation of Information Security (7 controls)</h3>
+  <p>Covers internal organisation (roles, responsibilities, segregation of duties) and mobile device and teleworking security policies.</p>
+
+  <h3>A.7 — Human Resource Security (6 controls)</h3>
+  <p>Security requirements during hiring, employment, and termination/role change. Includes background verification, terms of employment, and disciplinary processes.</p>
+
+  <h3>A.8 — Asset Management (10 controls)</h3>
+  <p>Inventory of assets, ownership, acceptable use, return of assets, classification, labelling, and media handling.</p>
+
+  <h3>A.9 — Access Control (14 controls)</h3>
+  <p>The largest single category. Covers access control policy, user registration, privilege management, password management, and system access controls.</p>
+
+  <h3>A.10 — Cryptography (2 controls)</h3>
+  <p>Policy on the use of cryptographic controls and key management lifecycle.</p>
+
+  <h3>A.11 — Physical & Environmental Security (15 controls)</h3>
+  <p>Secure areas, equipment security, clear desk/screen policy, unattended equipment, and removal of assets.</p>
+
+  <h3>A.12 — Operations Security (14 controls)</h3>
+  <p>Operational procedures, malware protection, backup, logging, monitoring, software installation control, and vulnerability management.</p>
+
+  <h3>A.13 — Communications Security (7 controls)</h3>
+  <p>Network controls, segregation of networks, information transfer policies, messaging security, and NDAs.</p>
+
+  <h3>A.14 — System Acquisition, Development & Maintenance (13 controls)</h3>
+  <p>Security requirements for information systems, secure development policy, secure engineering principles, and test data.</p>
+
+  <h3>A.15 — Supplier Relationships (5 controls)</h3>
+  <p>Information security in supplier agreements, monitoring and review of supplier services, and ICT supply chain management.</p>
+
+  <h3>A.16 — Information Security Incident Management (7 controls)</h3>
+  <p>Responsibilities and procedures, reporting events and weaknesses, assessment, response, and learning from incidents.</p>
+
+  <h3>A.17 — Business Continuity Management (4 controls)</h3>
+  <p>Information security continuity planning, verification, and redundancy of information processing facilities.</p>
+
+  <h3>A.18 — Compliance (8 controls)</h3>
+  <p>Compliance with legal and contractual requirements, intellectual property rights, privacy, cryptography regulations, and technical compliance reviews.</p>
+
+  <h2>Implementation Roadmap</h2>
+  <ul class="numbered-list">
+    <li><strong>Define Scope</strong> — Determine which assets, processes, and locations fall within the ISMS boundary</li>
+    <li><strong>Risk Assessment</strong> — Identify threats, vulnerabilities, and impacts against assets in scope</li>
+    <li><strong>Risk Treatment</strong> — Select applicable Annex A controls to mitigate accepted risks</li>
+    <li><strong>Statement of Applicability</strong> — Document which controls apply and justify exclusions</li>
+    <li><strong>Implement Controls</strong> — Roll out technical and procedural controls across the organisation</li>
+    <li><strong>Internal Audit</strong> — Conduct a full internal audit against all clauses before certification</li>
+    <li><strong>Management Review</strong> — Top management reviews ISMS performance and approves for certification</li>
+    <li><strong>Certification Audit</strong> — Stage 1 (documentation review) + Stage 2 (on-site audit) by an accredited body</li>
+  </ul>
+</div>
+`,
+
+iso27001primer: `
+<div class="modal-header">
+  <div class="modal-tag">Framework Guide · ISO 27001</div>
+  <div class="modal-title">ISO/IEC 27001:2013 — The Complete ISMS Primer</div>
+  <div class="modal-meta"><span>Published: July 2021</span><span>Author: Shavra Ayub Shah</span><span>CEH · ISO 27001-LA · CISA</span></div>
+</div>
+<div class="article-body">
+  <p>ISO 27001:2013 is the most widely recognised international standard for <strong>Information Security Management Systems (ISMS)</strong>. It provides a systematic approach to managing sensitive company information so that it remains secure — covering people, processes, and IT systems.</p>
+
+  <h2>What is ISO and ISO 27001?</h2>
+  <p>The <strong>International Organization for Standardization (ISO)</strong> is a global body that develops internationally agreed standards to ensure quality, safety, and efficiency of products, services, and systems. ISO 27001 is its flagship standard for information security — globally recognised and certifiable.</p>
+  <p>The standard is built on the <strong>CIA Triad</strong>:</p>
+  <table class="std-table">
+    <tr><th>Principle</th><th>Meaning</th><th>Example Control</th></tr>
+    <tr><td>Confidentiality</td><td>Information accessible only to authorised parties</td><td>Access control, encryption</td></tr>
+    <tr><td>Integrity</td><td>Accuracy and completeness of information protected</td><td>Checksums, audit logs</td></tr>
+    <tr><td>Availability</td><td>Authorised users can access information when needed</td><td>Redundancy, backups, DR plans</td></tr>
+  </table>
+
+  <h2>Which Organisations Should Pursue ISO 27001?</h2>
+  <p>There is no boundary or limitation. The standard applies to any organisation for which the CIA of information is critical to business. While IT and cloud companies were early adopters, the trend has expanded to:</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0;">
+    <span class="pill">Healthcare</span><span class="pill">Financial Services</span><span class="pill">Oil & Gas</span>
+    <span class="pill">Pharma & Life Sciences</span><span class="pill">Food & FMCG</span><span class="pill">Government</span>
+    <span class="pill">Legal & Professional Services</span><span class="pill">Manufacturing</span><span class="pill">Cloud & SaaS</span>
+  </div>
+
+  <h2>Defining the ISMS Scope</h2>
+  <p>Scope is defined by management and varies by organisation size and structure:</p>
+  <table class="std-table">
+    <tr><th>Organisation Type</th><th>Typical Approach</th></tr>
+    <tr><td>Large Enterprise</td><td>Specific departments or processes (e.g. Cyber Security team, Network Operations)</td></tr>
+    <tr><td>SME / Mid-market</td><td>Entire organisation under ISMS scope</td></tr>
+    <tr><td>Multi-national</td><td>Specific geographies or business units, with phased rollout</td></tr>
+  </table>
+
+  <h2>The ISO 27001 Audit Process — Step by Step</h2>
+
+  <h3>Pre-Audit Preparation</h3>
+  <p>All team owners are informed in advance of audit dates. An opening meeting schedule, department interview slots, and a closing meeting are arranged. Internal audits should ideally be completed before inviting an external certification body.</p>
+
+  <h3>Opening Meeting</h3>
+  <p>Attended by the Auditor, CISO, and all team/process owners. The CISO and auditor provide an overview of the certification purpose, scope, and process expectations.</p>
+
+  <h3>Department Interviews & Evidence Review</h3>
+  <p>The auditor interviews process owners and reviews:</p>
+  <ul class="checklist">
+    <li>Team structure, roles, and segregation of duties</li>
+    <li>How access rights are assigned, reviewed, and revoked</li>
+    <li>Life cycle of technical processes and tools used</li>
+    <li>CIA maintenance — data at rest and in transit</li>
+    <li>Past performance reports, SLAs, and improvement trends</li>
+    <li>Security awareness training evidence and test results</li>
+    <li>Physical security arrangements and disaster recovery plans</li>
+    <li>Random employee interviews on security awareness</li>
+  </ul>
+
+  <h3>Non-Conformance (NC) Findings</h3>
+  <table class="std-table">
+    <tr><th>NC Type</th><th>Description</th><th>Impact on Certification</th></tr>
+    <tr><td>Minor NC</td><td>Slight deviation — improvement suggested by auditor</td><td>Noted in audit report; certification typically proceeds</td></tr>
+    <tr><td>Major NC</td><td>Process not adhering to standard requirements</td><td>Certification withheld until corrective action implemented and verified</td></tr>
+  </table>
+
+  <h3>Closing Meeting</h3>
+  <p>Attended by the same members as the opening meeting. The auditor presents findings. For major NCs, corrective actions and a remediation timeline are agreed. For minor NCs, recommendations are documented for next cycle improvement.</p>
+
+  <h2>Common Auditor Questions — Be Prepared</h2>
+  <ul class="checklist">
+    <li>Walk me through your team structure, roles, and segregation of duties</li>
+    <li>How do you manage access rights — provisioning, periodic review, and de-provisioning?</li>
+    <li>What changes were made to your security posture during/after the COVID pandemic?</li>
+    <li>How do you maintain CIA for data at rest and data in transit?</li>
+    <li>Show me evidence of your last security awareness training and assessment results</li>
+    <li>What is your incident response procedure? Show me a recent incident ticket lifecycle</li>
+    <li>How do you manage third-party and supplier access to your systems?</li>
+  </ul>
+
+  <div class="info-box"><p>💡 <strong>Pro Tip:</strong> The auditor may conduct random employee interviews to assess security awareness. Ensure all staff — not just IT — understand basic security hygiene, password policies, phishing awareness, and incident reporting procedures.</p></div>
+</div>
+`
+
+};
 </script>
 </body>
 </html>
